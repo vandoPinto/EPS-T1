@@ -1,0 +1,85 @@
+<div class="coluna-esquerda altura-1_1 largura-1_3 centro">
+    <img src="recursos/imgs/T5.png" style="top: 0px;left: 0px;width: 138px;">
+</div>
+<div style="margin-left: 175px;margin-top: 50px;">
+    <p>Clique nos tipos de educação para entender o significado de um.</p>
+    <img class="animate__animated animate__backInRight" src="recursos/imgs/img-slide-4.svg"
+        style="width: 402px;margin-top: 31px;margin-left: 120px;">
+    <div style="position: absolute;">
+        <div id="botao_1" style="width: 260px;height: 93px;margin-top: -345px;margin-left: 190px;cursor: pointer;">
+        </div>
+        <div id="botao_2" style="width: 153px;height: 220px;margin-left: 120px;margin-top: 30px;cursor: pointer;">
+        </div>
+        <div id="botao_3" style="width: 150px;height: 224px;margin-left: 370px;margin-top: -222px;cursor: pointer;">
+        </div>
+    </div>
+    <div>
+        <div class="jan" id="janela_1">
+            <div
+                style="width: 353px;height: 115px;background: #4B9BCF 0% 0% no-repeat padding-box;border-radius: 10px;display: flex;position: absolute;top: 200px;left: 300px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 689px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p
+                        style="width: 300px;font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #FFFFFF;">
+                        Aprendizagens em contexto de socialização, de forma espontânea no dia a dia.</p>
+                </div>
+                <p
+                    style="font: normal normal normal 14px/18px Poppins;color: white;position: absolute;top: -9px;left: 335px;">
+                    x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_2">
+            <div
+                style="width: 353px;height: 115px;background: #F7A647 0% 0% no-repeat padding-box;border-radius: 10px;display: flex;position: absolute;top: 200px;left: 300px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 689px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p
+                        style="width: 300px;font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #FFFFFF;">
+                        Altamente estruturada/institucional, com conteúdos previamente definidos.</p>
+                </div>
+                <p
+                    style="font: normal normal normal 14px/18px Poppins;color: white;position: absolute;top: -9px;left: 335px;">
+                    x</p>
+            </div>
+        </div>
+        <div class="jan" id="janela_3">
+            <div
+                style="width: 353px;height: 115px;background: #3C9D96 0% 0% no-repeat padding-box;border-radius: 10px;display: flex;position: absolute;top: 200px;left: 300px;align-items: center;justify-content: space-evenly;">
+                <div
+                    style="width: 689px;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+                    <p
+                        style="width: 300px;font: normal normal normal 14px/18px Poppins;letter-spacing: 0px;color: #FFFFFF;">
+                        Compartilhamento de experiências, em espaços e ações coletivas cotidianas.</p>
+                </div>
+                <p
+                    style="font: normal normal normal 14px/18px Poppins;color: white;position: absolute;top: -9px;left: 335px;">
+                    x</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).hover(() => {
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+            });
+            $(botao).mouseleave(() => {
+                $(document).find('[id^=btn]').hide();
+            });
+            $(botao).click(() => {
+                apagarJanelas();
+                $(janelas[index]).fadeIn();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                $(janela).hide();
+            })
+        }
+    })
+</script>
